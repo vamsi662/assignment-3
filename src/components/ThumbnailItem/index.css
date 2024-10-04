@@ -1,0 +1,15 @@
+.item {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.thumbnail-btn {
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.thumbnail-image {
+  width: 80px;
+}

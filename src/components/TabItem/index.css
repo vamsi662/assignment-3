@@ -1,0 +1,18 @@
+.tabItem {
+  color: #fec653;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
+  margin: 0;
+}
+
+.tab-btn {
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.underline {
+  border-bottom: 2px solid #fec653;
+}
