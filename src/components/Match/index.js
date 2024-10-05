@@ -26,7 +26,7 @@ class Match extends Component {
   }
 
   runTimer = () => {
-    const stopTimer = setInterval(() => {
+    this.stopTimer = setInterval(() => {
       this.setState(prevState => ({sec: prevState.sec - 1}))
     }, 1000)
   }
@@ -42,7 +42,7 @@ class Match extends Component {
     const {imagesList} = this.props
     const matchSuccess = idOfImage === id
     if (matchSuccess === false) {
-      clearInterval(stopTimer)
+      clearInterval(this.stopTimer)
       this.setState({gameOver: true})
     } else {
       const randomIndex = Math.floor(Match.random * imagesList.length)
@@ -56,19 +56,20 @@ class Match extends Component {
   }
 
   displayResult = () => {
-    clearInterval(stopTimer)
+    clearInterval(this.stopTimer)
     this.setState({gameOver: true})
   }
 
   onClickPlayAgain = () => {
+    const imageObject = this.getImage()
+    const {imageUrl, id} = imageObject
     this.setState({
       score: 0,
       activeTabId: 'FRUIT',
       gameOver: false,
       sec: 60,
-      imageurl:
-        'https://assets.ccbp.in/frontend/react-js/match-game/orange-img.png',
-      gameStart: false,
+      imageurl: imageUrl,
+      idOfObject: id,
     })
     this.runTimer()
   }
@@ -78,10 +79,8 @@ class Match extends Component {
     const randomIndex = Math.floor(Match.random * imagesList.length)
     const imageObject = imagesList[randomIndex]
     const {imageUrl, id} = imageObject
-    this.setState({
-      imageurl: imageUrl,
-      idOfImage: id,
-    })
+    const returnObject = {imageUrl, id}
+    return returnObject
   }
 
   render() {
