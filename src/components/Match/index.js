@@ -17,7 +17,7 @@ class Match extends Component {
     const {imagesList} = this.props
     console.log(imagesList)
     const sizeOfImagesList = imagesList.length
-    console.lof(sizeOfImagesList)
+    console.log(sizeOfImagesList)
     const randomIndex = Math.floor(Match.random * imagesList.length)
     const imageObject = imagesList[randomIndex]
     const {imageUrl, id} = imageObject
