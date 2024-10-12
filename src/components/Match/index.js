@@ -15,20 +15,21 @@ class Match extends Component {
 
   componentDidMount() {
     const {imagesList} = this.props
+    console.log(imagesList)
+    const sizeOfImagesList = imagesList.length
+    console.lof(sizeOfImagesList)
     const randomIndex = Math.floor(Match.random * imagesList.length)
     const imageObject = imagesList[randomIndex]
     const {imageUrl, id} = imageObject
+    this.stopTimer = setInterval(this.runTimer, 1000)
     this.setState({
       imageurl: imageUrl,
       idOfImage: id,
     })
-    this.runTimer()
   }
 
   runTimer = () => {
-    this.stopTimer = setInterval(() => {
-      this.setState(prevState => ({sec: prevState.sec - 1}))
-    }, 1000)
+    this.setState(prevState => ({sec: prevState.sec - 1}))
   }
 
   onClickTab = id => {
